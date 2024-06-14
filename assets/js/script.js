@@ -50,12 +50,13 @@ function checkAnswer() {
 
     if (isCorrect) {
         alert("Hey! You got it right! :D");
+        increamentScore();
     } else {
         alert(`Awwww.... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
+        increamentWrongAnswer();
     }
 
     runGame(calculatedAnswer[1]);
-
 }
 
 /**
@@ -74,12 +75,23 @@ function calculateCorrectAnswer() {
         throw `Unimplemented operator ${operator}. Aborting!`;
     }
 }
-
+/**
+ * 
+ * 
+ */
 function increamentScore() {
 
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = ++oldScore;
 }
 
+/**
+ * 
+ * 
+ */
 function increamentWrongAnswer() {
+    let oldScore = parseInt(document.getElementById("incorrect").innerText);
+    document.getElementById("incorrect").innerText = ++oldScore;
 
 }
 
